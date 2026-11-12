@@ -1,4 +1,4 @@
-import { json } from './_lib/http';
+import { json } from './_lib/http.js';
 
 function handler(request: Request): Response {
   if (request.method !== 'GET') return json({ error: 'Método não permitido.' }, 405);

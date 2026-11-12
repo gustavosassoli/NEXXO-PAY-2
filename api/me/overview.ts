@@ -1,6 +1,6 @@
-import { json } from '../_lib/http';
-import { requireSession } from '../_lib/session';
-import { sql } from '../_lib/db';
+import { json } from '../_lib/http.js';
+import { requireSession } from '../_lib/session.js';
+import { sql } from '../_lib/db.js';
 
 async function handler(request: Request): Promise<Response> {
   if (request.method !== 'GET') return json({ error: 'Método não permitido.' }, 405);

@@ -1,5 +1,5 @@
 import { SignJWT, jwtVerify } from 'jose';
-import { unauthorized } from './http';
+import { unauthorized } from './http.js';
 
 const issuer = 'nexxo-pay-api';
 const audience = 'nexxo-pay-web';

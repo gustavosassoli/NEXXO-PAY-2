@@ -1,7 +1,7 @@
 import { getAddress, isAddress, verifyMessage } from 'viem';
-import { sql } from '../_lib/db';
-import { badRequest, json, unauthorized } from '../_lib/http';
-import { createSession } from '../_lib/session';
+import { sql } from '../_lib/db.js';
+import { badRequest, json, unauthorized } from '../_lib/http.js';
+import { createSession } from '../_lib/session.js';
 
 async function handler(request: Request): Promise<Response> {
   if (request.method !== 'POST') return json({ error: 'Método não permitido.' }, 405);

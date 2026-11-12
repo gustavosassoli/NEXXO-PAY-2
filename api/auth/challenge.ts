@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { getAddress, isAddress } from 'viem';
-import { sql } from '../_lib/db';
-import { badRequest, json } from '../_lib/http';
+import { sql } from '../_lib/db.js';
+import { badRequest, json } from '../_lib/http.js';
 
 const chainId = 137;
 
