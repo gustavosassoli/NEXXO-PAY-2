@@ -3,7 +3,7 @@ import { sql } from '../_lib/db';
 import { badRequest, json, unauthorized } from '../_lib/http';
 import { createSession } from '../_lib/session';
 
-export default async function handler(request: Request): Promise<Response> {
+async function handler(request: Request): Promise<Response> {
   if (request.method !== 'POST') return json({ error: 'Método não permitido.' }, 405);
 
   const body = await request.json().catch(() => null);
@@ -56,3 +56,5 @@ export default async function handler(request: Request): Promise<Response> {
   const token = await createSession(userId, normalizedAddress);
   return json({ token, user: { id: userId, walletAddress: normalizedAddress } });
 }
+
+export default { fetch: handler };

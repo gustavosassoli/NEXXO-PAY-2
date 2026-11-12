@@ -2,7 +2,7 @@ import { json } from '../_lib/http';
 import { requireSession } from '../_lib/session';
 import { sql } from '../_lib/db';
 
-export default async function handler(request: Request): Promise<Response> {
+async function handler(request: Request): Promise<Response> {
   if (request.method !== 'GET') return json({ error: 'Método não permitido.' }, 405);
   const session = await requireSession(request);
   if (session instanceof Response) return session;
@@ -32,3 +32,5 @@ export default async function handler(request: Request): Promise<Response> {
 
   return json({ profile, positions, activities });
 }
+
+export default { fetch: handler };

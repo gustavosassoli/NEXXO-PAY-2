@@ -5,7 +5,7 @@ import { badRequest, json } from '../_lib/http';
 
 const chainId = 137;
 
-export default async function handler(request: Request): Promise<Response> {
+async function handler(request: Request): Promise<Response> {
   if (request.method !== 'POST') return json({ error: 'Método não permitido.' }, 405);
 
   const body = await request.json().catch(() => null);
@@ -32,3 +32,5 @@ export default async function handler(request: Request): Promise<Response> {
 
   return json({ message, nonce, expiresAt, chainId });
 }
+
+export default { fetch: handler };
